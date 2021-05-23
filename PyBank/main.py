@@ -5,5 +5,12 @@ import os
 import csv
 
 #Set the path to the csv file
-csvpath = os.path.join('resources', 'budget_data.csv')
+budget_csv = os.path.join('resources', 'budget_data.csv')
 
+#Open and read the csv
+with open(budget_csv) as csv_file:
+    csv_reader = csv.reader(csv_file, delimiter=",")
+
+#Skip the header
+    csv_header = next(csv_file)
+    
