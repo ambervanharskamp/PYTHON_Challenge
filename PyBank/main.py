@@ -11,6 +11,8 @@ csvpath = os.path.join('resources','budgetdata.csv')
 
 total_months_counter = 0
 net_profitloss_total = 0
+monthly_change=0
+monthly_change_list = []
 
 #Read the csv file
 with open(csvpath) as csvfile:
@@ -37,5 +39,10 @@ with open(csvpath) as csvfile:
             #Add each profit / loss to the net_profitloss_total
             net_profitloss_total = net_profitloss_total + int(row[1])
 
+            #Calculate the monthly_change
+
+            #Add the monthly_change to the monthly_change_list
+
 print({str(total_months_counter)})
 print({str(net_profitloss_total)})
+print ({str(monthly_change_list)})
