@@ -10,6 +10,7 @@ csvpath = os.path.join('resources','budgetdata.csv')
 #Set the needed variables
 
 total_months_counter = 0
+net_profitloss_total = 0
 
 #Read the csv file
 with open(csvpath) as csvfile:
@@ -24,9 +25,17 @@ with open(csvpath) as csvfile:
     #Count the first month in the first row of the data 
     total_months_counter = 1
 
+    #Add the first profit/loss to the net_profitloss_total
+    net_profitloss_total += int(first_data_row[1])
+
     #Start the loop through the csv rows
     for row in csvreader:
 
+            #Add each row to the total_months_counter
             total_months_counter +=1
 
+            #Add each profit / loss to the net_profitloss_total
+            net_profitloss_total = net_profitloss_total + int(row[1])
+
 print({str(total_months_counter)})
+print({str(net_profitloss_total)})
