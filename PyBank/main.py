@@ -5,12 +5,17 @@ import os
 import csv
 
 #Set the path to the csv file
-budget_csv = os.path.join('resources', 'budget_data.csv')
+csvpath = os.path.join('resources','budgetdata.csv')
 
-#Open and read the csv
-with open(budget_csv) as csv_file:
-    csv_reader = csv.reader(csv_file, delimiter=",")
+with open(csvpath) as csvfile:
+    csvreader = csv.reader(csvfile, delimiter=',')
 
-#Skip the header
-    csv_header = next(csv_file)
-    
+    #print(csvreader)
+
+    #csv_header = next(csvreader)
+    #print(f"CSV Header: {csv_header}")
+
+    #for row in csvreader:
+        #print(row)
+    for row in csvreader:
+        print(len(profit/losses))
