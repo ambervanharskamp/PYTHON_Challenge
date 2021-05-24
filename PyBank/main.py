@@ -7,15 +7,26 @@ import csv
 #Set the path to the csv file
 csvpath = os.path.join('resources','budgetdata.csv')
 
+#Set the needed variables
+
+total_months_counter = 0
+
+#Read the csv file
 with open(csvpath) as csvfile:
     csvreader = csv.reader(csvfile, delimiter=',')
 
-    #print(csvreader)
+    #Read the header row
+    csv_header = next(csvreader)
 
-    #csv_header = next(csvreader)
-    #print(f"CSV Header: {csv_header}")
+    #Go to the first row of the data
+    first_data_row = next(csvreader)
 
-    #for row in csvreader:
-        #print(row)
+    #Count the first month in the first row of the data 
+    total_months_counter = 1
+
+    #Start the loop through the csv rows
     for row in csvreader:
-        print(len(profit/losses))
+
+            total_months_counter +=1
+
+print({str(total_months_counter)})
