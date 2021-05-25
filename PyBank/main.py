@@ -15,8 +15,9 @@ profitloss_previous_month = 0
 profitloss_current_month = 0
 monthly_change=0
 monthly_change_list = []
+date_list = []
 
-#Find the average from the monthly_change_list
+#Create a function to find the average from the monthly_change_list
 def Average(monthly_change_list):
     return sum(monthly_change_list) / len(monthly_change_list)
 
@@ -45,6 +46,9 @@ with open(csvpath, newline="") as csvfile:
             #Add each row to the total_months_counter
             total_months_counter +=1
 
+            #Add the date to the date_list
+            date_list.append(str(row[0]))
+
             #Add each profit / loss to the net_profitloss_total
             net_profitloss_total = net_profitloss_total + int(row[1])
 
@@ -60,11 +64,21 @@ with open(csvpath, newline="") as csvfile:
             #Reset the value of profitloss_previous_month to that of profitloss_current_month 
             profitloss_previous_month = profitloss_current_month
 
+#Calculate the average of the values in the monthly_change_list
 average = Average(monthly_change_list)
+
+#Find the greatest increase in profit
+greatest_increase_profit = max(monthly_change_list)
+
+#Find the greatest decrease in profit
+greatest_decrease_profit = min(monthly_change_list)
 
 print({str(total_months_counter)})
 print({str(net_profitloss_total)})
 print ({str(monthly_change_list)})
+print ({str(date_list)})
 print ({str(round(average,2))})
+print ({str(greatest_increase_profit)})
+print ({str(greatest_decrease_profit)})
 
 
