@@ -73,6 +73,18 @@ greatest_increase_profit = max(monthly_change_list)
 #Find the greatest decrease in profit
 greatest_decrease_profit = min(monthly_change_list)
 
+#Find the index for the greatest increase in profit
+greatest_increase_index = monthly_change_list.index(greatest_increase_profit)
+
+#Find the index for the greatest decrease in profit
+greatest_decrease_index = monthly_change_list.index(greatest_decrease_profit)
+
+#Find the date for the greatest increase in profit
+greatest_increase_date = date_list[greatest_increase_index]
+
+#Find the date for the greatest decrease in profit
+greatest_decrease_date = date_list[greatest_decrease_index]
+
 print({str(total_months_counter)})
 print({str(net_profitloss_total)})
 print ({str(monthly_change_list)})
@@ -80,5 +92,5 @@ print ({str(date_list)})
 print ({str(round(average,2))})
 print ({str(greatest_increase_profit)})
 print ({str(greatest_decrease_profit)})
-
-
+#print (date_list[greatest_increase_index])
+#print({str (greatest_decrease_date)})
