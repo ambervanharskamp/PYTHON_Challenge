@@ -11,11 +11,13 @@ csvpath = os.path.join('resources','budgetdata.csv')
 
 total_months_counter = 0
 net_profitloss_total = 0
+profitloss_previous_month = 0
+profitloss_current_month = 0
 monthly_change=0
 monthly_change_list = []
 
 #Read the csv file
-with open(csvpath) as csvfile:
+with open(csvpath, newline="") as csvfile:
     csvreader = csv.reader(csvfile, delimiter=',')
 
     #Read the header row
@@ -30,6 +32,9 @@ with open(csvpath) as csvfile:
     #Add the first profit/loss to the net_profitloss_total
     net_profitloss_total += int(first_data_row[1])
 
+    #Give profitloss_previous_month the profit/loss value for the first month
+    profitloss_previous_month = int(first_data_row[1]) 
+
     #Start the loop through the csv rows
     for row in csvreader:
 
@@ -39,9 +44,18 @@ with open(csvpath) as csvfile:
             #Add each profit / loss to the net_profitloss_total
             net_profitloss_total = net_profitloss_total + int(row[1])
 
-            #Calculate the monthly_change
+            #Give profitloss_current_month the profit/loss value for the first month
+            profitloss_current_month = int(row[1])
 
+            #Calculate the monthly_change
+            monthly_change = profitloss_current_month - profitloss_previous_month
+            
             #Add the monthly_change to the monthly_change_list
+            monthly_change_list.append(monthly_change)
+
+            #Make profitloss_previous_month 
+            profitloss_previous_month = profitloss_current_month
+
 
 print({str(total_months_counter)})
 print({str(net_profitloss_total)})
