@@ -86,7 +86,7 @@ greatest_increase_date = date_list[greatest_increase_index]
 greatest_decrease_date = date_list[greatest_decrease_index]
 
 #Format results to print to the terminal
-message = (
+Financial_Analysis = (
     f"Financial Analysis\n"
     f"--------------------------\n"
     f"Total Months: {str(total_months_counter)}\n"\
@@ -98,7 +98,7 @@ message = (
 )
 
 #Print message to the terminal
-print(message)
+print(Financial_Analysis)
 
 #Create an output file path
 output_path = os.path.join('analysis','pybank_analysis.txt')
@@ -107,4 +107,4 @@ output_path = os.path.join('analysis','pybank_analysis.txt')
 with open(output_path, 'w') as file:
 
     #Write Results in the text file
-    file.write(message)
+    file.write(Financial_Analysis)
