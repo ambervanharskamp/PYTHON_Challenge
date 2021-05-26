@@ -100,17 +100,6 @@ message = (
 #Print message to the terminal
 print(message)
 
-#Print results to the terminal
-#print({str(total_months_counter)})
-#print({str(net_profitloss_total)})
-#print ({str(monthly_change_list)})
-#print ({str(date_list)})
-#print ({str(round(average,2))})
-#print ({str(greatest_increase_profit)})
-#print ({str(greatest_decrease_profit)})
-#print (date_list[greatest_increase_index])
-#print(date_list[greatest_decrease_index])
-
 #Create an output file path
 output_path = os.path.join('analysis','pybank_analysis.txt')
 
@@ -118,4 +107,4 @@ output_path = os.path.join('analysis','pybank_analysis.txt')
 with open(output_path, 'w') as file:
 
     #Write Results in the text file
-    file.write("Financial Analysis")
+    file.write(message)
