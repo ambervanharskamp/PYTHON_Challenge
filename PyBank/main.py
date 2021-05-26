@@ -1,4 +1,4 @@
-#Import the os module to create a file paths across operating systems
+#Import the os module to create file paths across operating systems
 import os
 
 #Import the module to read the CSV files
@@ -85,12 +85,37 @@ greatest_increase_date = date_list[greatest_increase_index]
 #Find the date for the greatest decrease in profit
 greatest_decrease_date = date_list[greatest_decrease_index]
 
-print({str(total_months_counter)})
-print({str(net_profitloss_total)})
-print ({str(monthly_change_list)})
-print ({str(date_list)})
-print ({str(round(average,2))})
-print ({str(greatest_increase_profit)})
-print ({str(greatest_decrease_profit)})
+#Format results to print to the terminal
+message = (
+    f"Financial Analysis\n"
+    f"--------------------------\n"
+    f"Total Months: {str(total_months_counter)}\n"\
+    f"Total: ${str(net_profitloss_total)}\n"
+    f"Average Change: ${str(round(average,2))}\n"\
+    f"Greatest Increase in Profits: {date_list[greatest_increase_index]} (${str(greatest_increase_profit)})\n"
+    f"Greatest Decrease in Profits: {date_list[greatest_decrease_index]} (${str(greatest_decrease_profit)})\n"
+    f"--------------------------\n" 
+)
+
+#Print message to the terminal
+print(message)
+
+#Print results to the terminal
+#print({str(total_months_counter)})
+#print({str(net_profitloss_total)})
+#print ({str(monthly_change_list)})
+#print ({str(date_list)})
+#print ({str(round(average,2))})
+#print ({str(greatest_increase_profit)})
+#print ({str(greatest_decrease_profit)})
 #print (date_list[greatest_increase_index])
-#print({str (greatest_decrease_date)})
+#print(date_list[greatest_decrease_index])
+
+#Create an output file path
+output_path = os.path.join('analysis','pybank_analysis.txt')
+
+#Open the file using the "write mode"
+with open(output_path, 'w') as file:
+
+    #Write Results in the text file
+    file.write("Financial Analysis")
